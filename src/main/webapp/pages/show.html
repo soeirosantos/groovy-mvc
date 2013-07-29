@@ -1,0 +1,23 @@
+<!DOCTYPE html>
+<% def task = request.getAttribute("task") %>
+<html>
+	<head>
+		<title>Show Task</title>
+	</head>
+	<body>
+		<h2>Show Task</h2>
+		<p>
+			Code: ${task?.code}
+		</p>
+		<p>
+			Name: ${task?.name}
+		</p>
+		<p>
+			Description: ${task?.description}
+		</p>
+		<p>
+			<a href="/app?action=edit&code=${task?.code}" >Edit</a> | 
+			<a href="/app?action=remove&code=${task?.code}" >Remove</a>
+		</p>
+	</body>
+</html>

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<% def tasks = request.getAttribute("tasks") %>
+<html>
+	<head>
+		<title>Show Task</title>
+	</head>
+	<body>
+		<h2>List Tasks</h2>
+		<table>
+			<thead>
+				<tr>
+					<th>Code</th>
+					<th>Name</th>
+					<th>Description</th>
+				</tr>
+			</thead>
+			<%  tasks?.each { %>
+				<tr>
+					<td><a href="/app?action=show&code=${it.code}" >${it.code}</a></td>
+					<td>${it.name}</td>
+					<td>${it.description}</td>
+				</tr>
+			<%  } %>
+		</table>
+			
+	</body>
+</html>

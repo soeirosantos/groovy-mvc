@@ -4,3 +4,13 @@
 *.jar
 *.war
 *.ear
+
+# Eclipse dirs $
+
+target
+.project
+.groovy
+.settings
+.classpath
+
+*.*~
