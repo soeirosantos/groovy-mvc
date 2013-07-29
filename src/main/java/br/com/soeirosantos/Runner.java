@@ -2,9 +2,7 @@ package br.com.soeirosantos;
 
 import org.eclipse.jetty.server.Handler;
 import org.eclipse.jetty.server.Server;
-import org.eclipse.jetty.server.handler.ContextHandler;
 import org.eclipse.jetty.server.handler.ContextHandlerCollection;
-import org.eclipse.jetty.server.handler.ResourceHandler;
 import org.eclipse.jetty.webapp.WebAppContext;
 
 public class Runner {
@@ -17,18 +15,9 @@ public class Runner {
 		webapp.setResourceBase("src/main/webapp");
 		webapp.setContextPath("/");
 		webapp.setParentLoaderPriority(true);
-
-		ContextHandler resourcesContext = new ContextHandler();
-		resourcesContext.setContextPath("/resources");
-
-		ResourceHandler resources = new ResourceHandler();
-		resources.setDirectoriesListed(false);
-		resources.setResourceBase("/home/romulo/");
-
-		resourcesContext.setHandler(resources);
 		
 		ContextHandlerCollection contexts = new ContextHandlerCollection();
-		contexts.setHandlers(new Handler[] { webapp, resourcesContext });
+		contexts.setHandlers(new Handler[] { webapp });
 		
 		server.setHandler(contexts);
 
